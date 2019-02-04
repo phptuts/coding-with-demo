@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        body {
+            font-family: 'Arial';
+        }
+        main {
+            width: 100%;
+            min-width: 800px;
+            margin: 0 auto;
+            min-height: 500px;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        nav {
+            width: 20%;
+            min-width: 100px;
+            min-height: 500px;
+            height: 100%;
+            display: inline-block;
+        }
+        nav > a {
+            display: block;
+            text-align: center;
+            font-size: 30px;
+            padding: 10px;
+            background-color: lightgray;
+            border-bottom: black 2px solid;
+            border-right: black 2px solid;
+            color: black;
+            border-left: solid black 2px;
+            text-decoration: none;
+        }
+        nav > a:first-of-type {
+            border-top: solid black 2px;
+        }
+        #content {
+            width: 77%;
+            display: inline-block;
+            height: 100%;
+            min-height: 500px;
+            vertical-align: top;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        #progress-bar {
+            height: 25px;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            display: flex;
+        }
+        #progress-bar > a  {
+            flex-grow: 1;
+            background-color: #eb9a3a;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0;
+            border: 1px solid gray;
+            float: left;
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+        }
+
+        #progress-bar > a.complete {
+            background-color: #38d04e;
+        }
+        #picture-video {
+            display: flex;
+        }
+        #picture-video > video, #picture-video > img {
+            max-height: 450px;
+            max-width: 75%;
+            margin: 10px 0;
+            display: block;
+        }
+        #picture-video > textarea {
+            flex-grow: 2;
+            margin: 10px 0 10px 10px ;
+            font-size: 20px;
+        }
+        #controls{
+            width: 100%;
+            clear: both;
+            display: block;
+            height: 30px;
+        }
+
+        a.previous, a.next {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+        }
+
+        a.previous:hover, a.next:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .previous {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .next {
+            background-color: #38d04e;
+            float: right;
+            color: white;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<main >
+    <h1>High Five Machine</h1>
+
+    <nav>
+        <a href="">Introduction</a>
+        <a href="">Build</a>
+        <a href="">Coding 1</a>
+        <a href="">Challenge 1</a>
+        <a href="">Coding 2</a>
+        <a href="">Challenge 2</a>
+        <a href="">Resources</a>
+
+    </nav>
+    <section id="content">
+
+        <div id="progress-bar">
+                <a class="complete" href="">1</a>
+
+                <a class="complete" href="">2</a>
+
+
+                <a href="">3</a>
+
+
+                <a href="">4</a>
+
+
+            <a href="">5</a>
+            <a href="">6</a>
+            <a href="">7</a>
+            <a href="">8</a>
+            <a href="">9</a>
+            <a href="">10</a>
+
+        </div>
+        <section id="picture-video">
+            <img src="http://www.codingwithnoah.com/images/arduino-block/arduino-intro/arduino.jpg" />
+            <textarea id="notes">Put your own notes and questions here. :)</textarea>
+        </section>
+        <section>
+            <p>Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        </section>
+        <section id="controls">
+            <a href="#" class="previous round">&#8249;</a>
+            <a href="#" class="next round">&#8250;</a>
+        </section>
+
+    </section>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var left =  document.querySelector("#progress-bar").offsetLeft
+
+        var titleElement =  document.querySelector("h1");
+        titleElement.style.marginLeft = left -10 + "px";
+
+    });
+
+    //    document.addEventListener("DOMContentLoaded", function() {
+//        var progressBarWidth = document.querySelector("#progress-bar").offsetWidth;
+//        var stepElements = document.querySelectorAll("#progress-bar a");
+//        var numberOfSteps = stepElements.length;
+//
+//        var width = (progressBarWidth - (numberOfSteps * 3)) / numberOfSteps;
+//        console.log(width);
+//        for (var i = 0; i < numberOfSteps; i += 1) {
+//            stepElements[i].style.width = width.toString() + "px";
+//        }
+//    });
+
+
+</script>
+
+</body>
+</html>
