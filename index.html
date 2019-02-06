@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
         body {
             font-family: 'Arial';
         }
+
         main {
             width: 100%;
             min-width: 800px;
             margin: 0 auto;
             min-height: 500px;
         }
+
         h1 {
-            font-size: 30px;
+            font-size: 2em;
         }
+
         nav {
             width: 20%;
             min-width: 100px;
@@ -24,21 +28,33 @@
             height: 100%;
             display: inline-block;
         }
+
         nav > a {
             display: block;
             text-align: center;
             font-size: 30px;
             padding: 10px;
-            background-color: lightgray;
+            background-color: #eb9a3a;
             border-bottom: black 2px solid;
             border-right: black 2px solid;
             color: black;
             border-left: solid black 2px;
             text-decoration: none;
+            cursor: pointer;
         }
+
         nav > a:first-of-type {
             border-top: solid black 2px;
         }
+
+        .completed-nav {
+            background-color: #38d04e;
+        }
+
+        #nav-drop, #nav-drop-label {
+            display: none;
+        }
+
         #content {
             width: 77%;
             display: inline-block;
@@ -48,6 +64,7 @@
             margin-left: 20px;
             padding-left: 0;
         }
+
         #progress-bar {
             height: 25px;
             padding: 0;
@@ -55,7 +72,8 @@
             width: 100%;
             display: flex;
         }
-        #progress-bar > a  {
+
+        #progress-bar > span {
             flex-grow: 1;
             background-color: #eb9a3a;
             text-align: center;
@@ -66,56 +84,108 @@
             text-decoration: none;
             color: black;
             font-size: 20px;
+            cursor: pointer;
         }
 
-        #progress-bar > a.complete {
+        #progress-bar > span.complete {
             background-color: #38d04e;
         }
+
         #picture-video {
             display: flex;
         }
+
         #picture-video > video, #picture-video > img {
             max-height: 450px;
             max-width: 75%;
             margin: 10px 0;
             display: block;
         }
+
         #picture-video > textarea {
             flex-grow: 2;
-            margin: 10px 0 10px 10px ;
+            margin: 10px 0 10px 10px;
             font-size: 20px;
         }
-        #controls{
+
+        #controls {
             width: 100%;
             clear: both;
             display: block;
             height: 30px;
         }
 
-        a.previous, a.next {
+        .page {
             text-decoration: none;
             display: inline-block;
             padding: 8px 16px;
         }
 
-        a.previous:hover, a.next:hover {
-            background-color: #ddd;
-            color: black;
+        #next-step {
+            float: right;
         }
 
-        .previous {
+        .has-none {
             background-color: #f1f1f1;
             color: black;
         }
 
-        .next {
+        .has-more {
             background-color: #38d04e;
-            float: right;
             color: white;
         }
 
         .round {
             border-radius: 50%;
+        }
+
+        @media (max-width: 888px) {
+            nav {
+                width: 10%;
+                min-width: 150px;
+            }
+
+            nav > a {
+                display: block;
+                text-align: center;
+                font-size: 20px;
+            }
+
+            #content {
+                width: 90%;
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            nav {
+                display: none;
+            }
+
+            #content {
+                width: 95%;
+                max-width: none;
+                display: block;
+            }
+
+            #nav-drop {
+                display: block;
+                width: 95%;
+                border: solid lightgray 1px;
+                font-size: 1.5em;
+                margin: 20px auto;
+            }
+
+            #nav-drop-label {
+                display: block;
+                font-size: 1.5em;
+                margin: 20px auto;
+                width: 95%;
+            }
+        }
+
+        textarea {
+            border: solid black 2px;
         }
     </style>
 
@@ -124,76 +194,383 @@
 
 <body>
 
-<main >
+<main>
     <h1>High Five Machine</h1>
 
     <nav>
-        <a href="">Introduction</a>
-        <a href="">Build</a>
-        <a href="">Coding 1</a>
-        <a href="">Challenge 1</a>
-        <a href="">Coding 2</a>
-        <a href="">Challenge 2</a>
-        <a href="">Resources</a>
+        <a class="section_nav completed-nav" onclick="changeSection(0)">Introduction</a>
+        <a class="section_nav" onclick="changeSection(1)">Build</a>
+        <a class="section_nav" onclick="changeSection(2)">Coding 1</a>
+        <a class="section_nav" onclick="changeSection(3)">Challenge 1</a>
+        <a class="section_nav" onclick="changeSection(4)">Coding 2</a>
+        <a class="section_nav" onclick="changeSection(5)">Challenge 2</a>
+        <a class="section_nav" onclick="changeSection(6)">Resources</a>
 
     </nav>
+    <label id="nav-drop-label" for="nav-drop">Navigation</label>
+    <select id="nav-drop">
+        <option value="0">Introduction</option>
+        <option value="1">Build</option>
+        <option value="2">Coding 1</option>
+        <option value="3">Challenge 1</option>
+        <option value="4">Coding 2</option>
+        <option value="5">Challenge 2</option>
+        <option value="6">Resources</option>
+
+    </select>
     <section id="content">
 
         <div id="progress-bar">
-                <a class="complete" href="">1</a>
-
-                <a class="complete" href="">2</a>
-
-
-                <a href="">3</a>
-
-
-                <a href="">4</a>
-
-
-            <a href="">5</a>
-            <a href="">6</a>
-            <a href="">7</a>
-            <a href="">8</a>
-            <a href="">9</a>
-            <a href="">10</a>
+            <span onclick="changeStep(0, 0)" class="complete">1</span>
+            <span onclick="changeStep(0, 1)">2</span>
+            <span onclick="changeStep(0, 2)">3</span>
+            <span onclick="changeStep(0, 3)">4</span>
+            <span onclick="changeStep(0, 4)">5</span>
 
         </div>
         <section id="picture-video">
-            <img src="http://www.codingwithnoah.com/images/arduino-block/arduino-intro/arduino.jpg" />
+            <img id="step-image" src="http://www.codingwithnoah.com/images/arduino-block/arduino-intro/arduino.jpg"/>
             <textarea id="notes">Put your own notes and questions here. :)</textarea>
         </section>
         <section>
-            <p>Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <p id="step-text">Is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s.</p>
         </section>
         <section id="controls">
-            <a href="#" class="previous round">&#8249;</a>
-            <a href="#" class="next round">&#8250;</a>
+            <span id="previous-step" onclick="previousStep()" class="has-none page round">&#8249;</span>
+            <span onclick="nextStep()" id="next-step" class="has-more page round">&#8250;</span>
         </section>
 
     </section>
 </main>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var left =  document.querySelector("#progress-bar").offsetLeft
 
-        var titleElement =  document.querySelector("h1");
-        titleElement.style.marginLeft = left -10 + "px";
+    var lesson = {
+        "sections": [
+            {
+                "name": "Introduction",
+                "steps": [
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Intro_1",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Intro_2",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Intro_3",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Intro_4",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Intro_5",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
+                    }
+                ]
+            },
+            {
+                "name": "Build",
+                "steps": [
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_3",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_4",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_5",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_6",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 6"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_7",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 7"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_8",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 8"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_9",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 9"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_10",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 10"
+                    }
+                ]
+            },
+            {
+                "name": "Coding 1",
+                "steps": [
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_3",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_4",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_5",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_6",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 6"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_7",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 7"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_8",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 8"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_9",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 9"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_10",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 10"
+                    }
+                ]
+            },
+            {
+                "name": "Challenge 1",
+                "steps": [
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
+                    }
+                ]
+            },
+            {
+                "name": "Coding 2",
+                "steps": [
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_3",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_4",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_5",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_6",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 6"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_7",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 7"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_8",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 8"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_9",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 9"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_10",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 10"
+                    }
+                ]
+            },
+            {
+                "name": "Challenge 2",
+                "steps": [
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
+                    },
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
+                    }
+                ]
+            },
+
+            {
+                "name": "Resources",
+                "steps": [
+                    {
+                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
+                    }
+                ]
+            }
+        ]
+    };
+
+    /**
+     * Represents the current state of the page
+     */
+    var currentState = {
+        section: 0,
+        step: 0
+    };
+
+
+    // Positions the title to align with the progress bar
+    $(document).ready(function () {
+        var left = document.querySelector("#progress-bar").offsetLeft
+
+        var titleElement = document.querySelector("h1");
+        titleElement.style.marginLeft = left - 10 + "px";
 
     });
 
-    //    document.addEventListener("DOMContentLoaded", function() {
-//        var progressBarWidth = document.querySelector("#progress-bar").offsetWidth;
-//        var stepElements = document.querySelectorAll("#progress-bar a");
-//        var numberOfSteps = stepElements.length;
-//
-//        var width = (progressBarWidth - (numberOfSteps * 3)) / numberOfSteps;
-//        console.log(width);
-//        for (var i = 0; i < numberOfSteps; i += 1) {
-//            stepElements[i].style.width = width.toString() + "px";
-//        }
-//    });
+
+    /**
+     * Changes the number of steps in the progress bar
+     * Sets the step to 0
+     * Changes the status of the navigation
+     *
+     * @param currentSection The current section the student is one
+     */
+    function changeSection(currentSection) {
+        var sectionInfo = lesson['sections'][currentSection];
+        var htmlStepProgress = '';
+
+        sectionInfo.steps.forEach(function (step, index) {
+            htmlStepProgress += '<span ';
+            htmlStepProgress += 'onclick="changeStep(' + currentSection + ', '
+                + index + ')"';
+            if (index == 0) {
+                htmlStepProgress += ' class="steps complete" >';
+            } else {
+                htmlStepProgress += ' class="steps" >';
+            }
+
+            htmlStepProgress += (index + 1) + '</span>'
+        });
+
+        $("#progress-bar").html(htmlStepProgress);
+
+        var sectionNavs = $(".section_nav")
+
+        for (var i = 0; i < sectionNavs.length; i += 1) {
+            if (i > currentSection) {
+                $(sectionNavs[i]).removeClass("completed-nav");
+            } else {
+                $(sectionNavs[i]).addClass("completed-nav");
+            }
+        }
+
+        changeStep(currentSection, 0);
+
+    }
+
+    /**
+     * Controls status of the progress bar
+     * Changes the picture and text area
+     *
+     * @param currentSection
+     * @param currentStep
+     */
+    function changeStep(currentSection, currentStep) {
+        var step = lesson['sections'][currentSection].steps[currentStep];
+
+        // Updates the pictures and the text
+        $("#step-text").html(step.text);
+        $("#step-image").attr('src', step.img);
+
+        // Progress Bar
+        var spans = $("#progress-bar > span")
+        for (var i = 0; i < spans.length; i += 1) {
+            if (i > currentStep) {
+                $(spans[i]).removeClass("complete");
+            } else {
+                $(spans[i]).addClass("complete");
+            }
+        }
+
+        currentState.step = currentStep;
+        currentState.section = currentSection;
+
+
+        // Updates the previous span button
+        if (currentState.step == 0) {
+            $("#previous-step").addClass('has-none');
+            $("#previous-step").removeClass('has-more');
+        } else {
+            $("#previous-step").addClass('has-more');
+            $("#previous-step").removeClass('has-none');
+        }
+
+        // Updates the next span button
+        var lastStep = lesson['sections'][currentState.section].steps.length - 1;
+        if (currentState.step == lastStep) {
+            $("#next-step").addClass('has-none');
+            $("#next-step").removeClass('has-more');
+        } else {
+            $("#next-step").addClass('has-more');
+            $("#next-step").removeClass('has-none');
+        }
+
+
+    }
+
+    function previousStep() {
+        if ((currentState.step - 1) < 0) {
+            return;
+        }
+
+        changeStep(currentState.section, currentState.step - 1);
+    }
+
+    function nextStep() {
+
+        var lastStep = lesson['sections'][currentState.section].steps.length - 1;
+
+        if ((currentState.step + 1) > lastStep) {
+            return;
+        }
+
+        changeStep(currentState.section, currentState.step + 1);
+
+    }
 
 
 </script>
