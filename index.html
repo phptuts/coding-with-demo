@@ -198,14 +198,12 @@
     <h1>High Five Machine</h1>
 
     <nav>
-        <a class="section_nav completed-nav" onclick="changeSection(0)">Introduction</a>
-        <a class="section_nav" onclick="changeSection(1)">Build</a>
-        <a class="section_nav" onclick="changeSection(2)">Coding 1</a>
-        <a class="section_nav" onclick="changeSection(3)">Challenge 1</a>
-        <a class="section_nav" onclick="changeSection(4)">Coding 2</a>
-        <a class="section_nav" onclick="changeSection(5)">Challenge 2</a>
-        <a class="section_nav" onclick="changeSection(6)">Resources</a>
-
+        <a class="section_nav completed-nav" onclick="changeSection(0, 0)">Introduction</a>
+        <a class="section_nav" onclick="changeSection(1, 0)">Build</a>
+        <a class="section_nav" onclick="changeSection(2, 0)">Coding 1</a>
+        <a class="section_nav" onclick="changeSection(3, 0)">Challenge 1</a>
+        <a class="section_nav" onclick="changeSection(4, 0)">Coding 2</a>
+        <a class="section_nav" onclick="changeSection(5, 0)">Challenge 2</a>
     </nav>
     <label id="nav-drop-label" for="nav-drop">Navigation</label>
     <select id="nav-drop">
@@ -215,8 +213,6 @@
         <option value="3">Challenge 1</option>
         <option value="4">Coding 2</option>
         <option value="5">Challenge 2</option>
-        <option value="6">Resources</option>
-
     </select>
     <section id="content">
 
@@ -226,10 +222,9 @@
             <span onclick="changeStep(0, 2)">3</span>
             <span onclick="changeStep(0, 3)">4</span>
             <span onclick="changeStep(0, 4)">5</span>
-
         </div>
         <section id="picture-video">
-            <img id="step-image" src="http://www.codingwithnoah.com/images/arduino-block/arduino-intro/arduino.jpg"/>
+            <img   id="main-image" src="http://www.codingwithnoah.com/images/arduino-block/arduino-intro/arduino.jpg"/>
             <textarea id="notes">Put your own notes and questions here. :)</textarea>
         </section>
         <section>
@@ -240,7 +235,6 @@
             <span id="previous-step" onclick="previousStep()" class="has-none page round">&#8249;</span>
             <span onclick="nextStep()" id="next-step" class="has-more page round">&#8250;</span>
         </section>
-
     </section>
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -252,23 +246,28 @@
                 "name": "Introduction",
                 "steps": [
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Intro_1",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Intro_1",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Intro_2",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Intro_2",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Intro_3",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Intro_3",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Intro_4",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Intro_4",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Intro_5",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Intro_5",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
                     }
                 ]
@@ -277,43 +276,53 @@
                 "name": "Build",
                 "steps": [
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_1",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_2",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_3",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_3",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_4",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_4",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_5",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_5",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_6",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_6",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 6"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_7",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_7",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 7"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_8",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_8",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 8"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_9",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_9",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 9"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_10",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_10",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 10"
                     }
                 ]
@@ -322,43 +331,53 @@
                 "name": "Coding 1",
                 "steps": [
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_1",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_2",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_3",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_3",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_4",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_4",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_5",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_5",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_6",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_6",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 6"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_7",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_7",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 7"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_8",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_8",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 8"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_9",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_9",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 9"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_10",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_10",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 10"
                     }
                 ]
@@ -367,7 +386,8 @@
                 "name": "Challenge 1",
                 "steps": [
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Challenge_1",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
                     }
                 ]
@@ -376,43 +396,53 @@
                 "name": "Coding 2",
                 "steps": [
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_1",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_2",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_3",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_3",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 3"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_4",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_4",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 4"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_5",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_5",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 5"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_6",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_6",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 6"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_7",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_7",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 7"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_8",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_8",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 8"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_9",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_9",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 9"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_10",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_10",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 10"
                     }
                 ]
@@ -421,22 +451,14 @@
                 "name": "Challenge 2",
                 "steps": [
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_1",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
                     },
                     {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_2",
+                        "type": "image",
+                        "src": "https://fakeimg.pl/700x500/?text=Build_2",
                         "text": "Is simply dummy text of the printing and typesetting industry. Step 2"
-                    }
-                ]
-            },
-
-            {
-                "name": "Resources",
-                "steps": [
-                    {
-                        "img": "https://fakeimg.pl/700x500/?text=Build_1",
-                        "text": "Is simply dummy text of the printing and typesetting industry. Step 1"
                     }
                 ]
             }
@@ -459,6 +481,8 @@
         var titleElement = document.querySelector("h1");
         titleElement.style.marginLeft = left - 10 + "px";
 
+        changeSection(0, 0);
+
     });
 
 
@@ -468,8 +492,11 @@
      * Changes the status of the navigation
      *
      * @param currentSection The current section the student is one
+     * @param currentStep The step the user is on
      */
-    function changeSection(currentSection) {
+    function changeSection(currentSection, currentStep) {
+
+        currentStep = currentStep || 0;
         var sectionInfo = lesson['sections'][currentSection];
         var htmlStepProgress = '';
 
@@ -498,7 +525,7 @@
             }
         }
 
-        changeStep(currentSection, 0);
+        changeStep(currentSection, currentStep);
 
     }
 
@@ -512,9 +539,18 @@
     function changeStep(currentSection, currentStep) {
         var step = lesson['sections'][currentSection].steps[currentStep];
 
-        // Updates the pictures and the text
         $("#step-text").html(step.text);
-        $("#step-image").attr('src', step.img);
+
+        if (step.type == 'image') {
+            $("#main-image").show();
+            $("#main-image").attr('src', step.src);
+            $("#main-video").hide();
+        } else if (step.type == 'video') {
+            $("#main-video").show();
+            $("#main-video").attr('src', step.src);
+            $("#main-image").hide();
+        }
+        // Updates the pictures and the text
 
         // Progress Bar
         var spans = $("#progress-bar > span")
@@ -531,7 +567,7 @@
 
 
         // Updates the previous span button
-        if (currentState.step == 0) {
+        if (onFirstStep()) {
             $("#previous-step").addClass('has-none');
             $("#previous-step").removeClass('has-more');
         } else {
@@ -540,8 +576,7 @@
         }
 
         // Updates the next span button
-        var lastStep = lesson['sections'][currentState.section].steps.length - 1;
-        if (currentState.step == lastStep) {
+        if (onLastStep()) {
             $("#next-step").addClass('has-none');
             $("#next-step").removeClass('has-more');
         } else {
@@ -553,23 +588,50 @@
     }
 
     function previousStep() {
-        if ((currentState.step - 1) < 0) {
+        if (onFirstStep()) {
             return;
         }
 
-        changeStep(currentState.section, currentState.step - 1);
+        var section = (currentState.step - 1) < 0 ? currentState.section - 1 : currentState.section;
+
+        var step = (currentState.step - 1) < 0 ?
+            lesson['sections'][currentState.section - 1].steps.length - 1 : currentState.step - 1;
+
+        if (section == currentState.section) {
+            changeStep(section, step);
+        } else {
+            changeSection(section, step);
+        }
+
     }
 
     function nextStep() {
 
-        var lastStep = lesson['sections'][currentState.section].steps.length - 1;
-
-        if ((currentState.step + 1) > lastStep) {
+        if (onLastStep()) {
             return;
         }
 
-        changeStep(currentState.section, currentState.step + 1);
+        var changeSections =
+            (lesson['sections'][currentState.section].steps.length - 1) == currentState.step;
 
+        if (changeSections) {
+            changeSection(currentState.section + 1, 0);
+        } else {
+            changeStep(currentState.section, currentState.step + 1);
+        }
+    }
+
+    function onLastStep() {
+
+        var lastSection = lesson['sections'].length - 1;
+
+        var lastStepOfSectionLastSection = lesson['sections'][lastSection].steps.length - 1;
+
+        return lastSection == currentState.section && currentState.step == lastStepOfSectionLastSection;
+    }
+
+    function onFirstStep() {
+        return (currentState.step - 1) < 0 && currentState.section == 0
     }
 
 
